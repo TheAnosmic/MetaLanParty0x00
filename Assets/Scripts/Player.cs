@@ -14,11 +14,11 @@ public class Player : MonoBehaviour
 {
     public Movement xMovement;
     public Movement yMovement;
+    public Weapon weapon;
 
     // Use this for initialization
     void Start()
     {
-
     }
 
     // Update is called once per frame
