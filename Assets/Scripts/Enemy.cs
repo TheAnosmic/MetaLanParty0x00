@@ -13,6 +13,23 @@ interface IAI
     Transform GetTarget();
 }
 
+abstract class Ability
+{
+    public Ability(float maxRange, float minRange, float cooldown) 
+	{
+		this.MaxRange = maxRange;
+		this.MinRange = minRange;
+		this.Cooldown = cooldown;
+	}
+
+    private float MaxRange { get; set; }
+    private float MinRange { get; set; }
+    private float Cooldown { get; set; }
+
+    public abstract void Execute(Transform target);
+}
+
+
 class Stupid : IAI
 {
 
@@ -44,6 +61,12 @@ class Stupid : IAI
     public Transform GetTarget()
     {
         return this.t;
+    }
+
+    public void Attack()
+    {
+        GameObject newBullet = (GameObject)Instantiate(bullet, this.transform.position, this.transform.rotation);
+        newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.MoveTowards(this.transform.position, target.transform.position, 0.01f);
     }
 }
 
