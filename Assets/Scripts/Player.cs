@@ -4,10 +4,10 @@ using System.Collections;
 public enum Movement
 {
     StandingStill = 0,
-    Left,
-    Right,
-    Up,
-    Down,
+    Left = 1,
+    Right = 2,
+    Up = 3,
+    Down = 4,
 }
 
 public class Player : MonoBehaviour
@@ -43,6 +43,9 @@ public class Player : MonoBehaviour
         {
             xMovement = Movement.Right;
         }
+        GetComponent<Animator>().SetInteger("Direction", (int)xMovement);
+        if (yMovement != Movement.StandingStill)
+            GetComponent<Animator>().SetInteger("Direction", (int)yMovement);
     }
 
     void FixedUpdate()

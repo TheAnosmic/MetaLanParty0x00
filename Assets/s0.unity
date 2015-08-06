@@ -147,7 +147,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1000
+  orthographic size: 2
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -182,8 +182,9 @@ GameObject:
   - 4: {fileID: 949406176}
   - 212: {fileID: 949406175}
   - 114: {fileID: 949406177}
+  - 95: {fileID: 949406178}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: ObPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,7 +214,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b46e6c58992c2414a8a72f8e017b90c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ab90f7eb8e5b0d4298f4108dc43ae9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &949406176
 Transform:
@@ -238,8 +239,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4ffe65b4cd90043b91ad62d7811dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMovement: 2
+  xMovement: 0
   yMovement: 0
+--- !u!95 &949406178
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 949406174}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 628298d359172814087bb403bffc1dbb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1519732198
 GameObject:
   m_ObjectHideFlags: 0
