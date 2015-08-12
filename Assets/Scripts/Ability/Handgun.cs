@@ -4,11 +4,12 @@ using System.Collections;
 public class Handgun : Ability
 {
 	public GameObject bullet;
+	public float bulletSpeed = 1f;
 
 	protected override void Shoot(Transform target)
 	{
 		GameObject newBullet = (GameObject)Instantiate(bullet, this.transform.position, this.transform.rotation);
-		newBullet.GetComponent<Rigidbody2D>().velocity = Vector2.MoveTowards(this.transform.position, target.transform.position, 0.01f);
+		newBullet.GetComponent<Rigidbody2D>().velocity = ((target.position - this.transform.position).normalized * bulletSpeed);
 	}
 
 	void Start()

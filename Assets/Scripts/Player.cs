@@ -43,9 +43,9 @@ public class Player : MonoBehaviour
         {
             xMovement = Movement.Right;
         }
-        GetComponent<Animator>().SetInteger("Direction", (int)xMovement);
-        if (yMovement != Movement.StandingStill)
-            GetComponent<Animator>().SetInteger("Direction", (int)yMovement);
+//        GetComponent<Animator>().SetInteger("Direction", (int)xMovement);
+        //if (yMovement != Movement.StandingStill)
+        //    GetComponent<Animator>().SetInteger("Direction", (int)yMovement);
     }
 
     void FixedUpdate()
