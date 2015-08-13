@@ -14,18 +14,18 @@ public abstract class Ability : MonoBehaviour
 	{
 		if (cooldownTimer == 0) {
 			Shoot(target);
-			this.cooldownTimer = this.Cooldown;
+			cooldownTimer = Cooldown;
 		}
 	}
 
 	protected abstract void Shoot(Transform target);
 
-	public void Start() 
+	protected virtual void Start() 
 	{
-		this.cooldownTimer = this.Cooldown;
+		cooldownTimer = Cooldown;
 	}
 
-	public void Update() 
+    protected virtual void Update() 
 	{
 		cooldownTimer -= 1 * Time.deltaTime;
 		if (cooldownTimer < 0) {

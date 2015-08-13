@@ -8,20 +8,15 @@ public class Handgun : Ability
 
 	protected override void Shoot(Transform target)
 	{
-		GameObject newBullet = (GameObject)Instantiate(bullet, this.transform.position, this.transform.rotation);
-		newBullet.GetComponent<Rigidbody2D>().velocity = ((target.position - this.transform.position).normalized * bulletSpeed);
+		GameObject newBullet = (GameObject)Instantiate(bullet, this.transform.position, transform.rotation);
+		newBullet.GetComponent<Rigidbody2D>().velocity = ((target.position - transform.position).normalized * bulletSpeed);
 	}
 
-	void Start()
+	protected override void Start()
 	{
-		this.MaxRange = 3;
-		this.MinRange = 1;
-		this.Cooldown = 1;
+		MaxRange = 3;
+		MinRange = 1;
+		Cooldown = 1;
 		base.Start();
-	}
-
-	void Update() 
-	{
-		base.Update();
 	}
 }

@@ -9,7 +9,7 @@ class Stupid : IAI
 	public Stupid(Transform target, double range)
 	{
 		this.target = target;
-		this.range = range;
+        this.range = range;
 	}
 	
 	public bool ShouldAttack(Vector3 currentPosition)
