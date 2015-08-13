@@ -10,7 +10,7 @@ public enum Movement
     Down = 4,
 }
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
     public Movement xMovement;
     public Movement yMovement;
@@ -18,7 +18,8 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        hp = 50;
+        armor = 0;
     }
 
     // Update is called once per frame
@@ -75,5 +76,6 @@ public class Player : MonoBehaviour
         transform.Translate(move.x, move.y, 0);
 
     }
+
 
 }

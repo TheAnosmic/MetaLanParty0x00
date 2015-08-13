@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : Entity
 {
     protected IAI m_ai;
 	protected Ability m_ability;

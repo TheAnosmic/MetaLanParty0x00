@@ -14,7 +14,6 @@ public class Map : MonoBehaviour {
         factory = new EnemyFactory(gameObject);
         factory.PossibleEnemies = PossibleEnemies;
         
-
         target = Instantiate(Player);
         factory.Target = target;
         InvokeRepeating("Launch", 2, 0.3F);
@@ -22,7 +21,11 @@ public class Map : MonoBehaviour {
 
     void Launch()
     {
-        factory.Create(2, new Vector2(-10, -10), new Vector2(10, 10));
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length < 10)
+        {
+            factory.Create(2, new Vector2(-10, -10), new Vector2(10, 10));
+        }
+        
     }
     
 }

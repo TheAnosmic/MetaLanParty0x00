@@ -11,6 +11,7 @@ public class SpittingCow : Enemy
         m_ai = new Stupid(target, 2);
         gun.bulletSpeed = 15;
         m_ability = gun;
+        hp = 1;
 
     }
 

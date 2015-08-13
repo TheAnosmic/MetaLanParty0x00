@@ -117,7 +117,7 @@ MonoBehaviour:
   Background: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
   PossibleEnemies:
   - {fileID: 178442, guid: de6daca1a2b8aea47af352e681d391e1, type: 2}
-  Player: {fileID: 0}
+  Player: {fileID: 173340, guid: 5103264e4d3d138498c3805d73defc16, type: 2}
 --- !u!4 &642664431
 Transform:
   m_ObjectHideFlags: 0
@@ -130,48 +130,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1001 &997719268
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 408888, guid: 23b1de793c91c30418caf0017156d3b1, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 408888, guid: 23b1de793c91c30418caf0017156d3b1, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 408888, guid: 23b1de793c91c30418caf0017156d3b1, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 408888, guid: 23b1de793c91c30418caf0017156d3b1, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 408888, guid: 23b1de793c91c30418caf0017156d3b1, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 408888, guid: 23b1de793c91c30418caf0017156d3b1, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 408888, guid: 23b1de793c91c30418caf0017156d3b1, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 408888, guid: 23b1de793c91c30418caf0017156d3b1, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 23b1de793c91c30418caf0017156d3b1, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1158078559
 GameObject:
   m_ObjectHideFlags: 0

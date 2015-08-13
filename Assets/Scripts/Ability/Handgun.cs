@@ -8,7 +8,9 @@ public class Handgun : Ability
 
 	protected override void Shoot(Transform target)
 	{
-		GameObject newBullet = (GameObject)Instantiate(bullet, this.transform.position, transform.rotation);
+        bullet.GetComponent<Bullet>().damage = 1f;
+        Vector3 direction = (target.position - transform.position).normalized;
+        GameObject newBullet = (GameObject)Instantiate(bullet, this.transform.position + direction * 0.5f, transform.rotation);
 		newBullet.GetComponent<Rigidbody2D>().velocity = ((target.position - transform.position).normalized * bulletSpeed);
 	}
 
