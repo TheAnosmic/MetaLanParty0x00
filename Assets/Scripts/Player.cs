@@ -14,6 +14,7 @@ public class Player : Entity
 {
     public Movement xMovement;
     public Movement yMovement;
+    public Weapon weapon;
 
     // Use this for initialization
     void Start()
