@@ -17,8 +17,9 @@ public class Player : Entity
     public Weapon weapon;
 
     // Use this for initialization
-    void Start()
+    new void Start()
     {
+        base.Start();
         hp = 50;
         armor = 0;
     }
