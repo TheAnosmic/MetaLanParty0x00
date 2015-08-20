@@ -8,8 +8,9 @@ public class Player : Entity
     public Handgun gun;
 
     // Use this for initialization
-    void Start()
+    new void Start()
     {
+        base.Start();
         hp = 50;
         armor = 0;
     }
@@ -40,15 +41,15 @@ public class Player : Entity
             Debug.Log("Player.FixedUpdate: instantiatedProjectile = " + (instantiatedProjectile != null));
 
             if (instantiatedProjectile != null)
-            {
+        {
                 instantiatedProjectile.GetComponent<Rigidbody2D>().velocity = originAngle * bulletSpeed;
                 Debug.Log("Player.FixedUpdate: instantiatedProjectile.velocity = " + instantiatedProjectile.GetComponent<Rigidbody2D>().velocity);
             }*/
         }
-    }
+        }
 
     void FixedUpdate()
-    {
+        {
         float xMovement = Input.GetAxis("Horizontal");
         float yMovement = Input.GetAxis("Vertical");
         var movement = new Vector2(xMovement, yMovement);

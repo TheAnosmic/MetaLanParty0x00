@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
 public class Entity : MonoBehaviour {
     public float hp { get; protected set; }
@@ -10,10 +12,17 @@ public class Entity : MonoBehaviour {
 
     public event HPChange hpChange;
     // Use this for initialization
-    void Start () {
+    protected void Start ()
+    {
+        hpChange += OnHpChange;
     }
-	
-	// Update is called once per frame
+
+    private void OnHpChange(float beforehp, float afterhp)
+    {
+        DamageTextCreator.Create(this, afterhp - beforehp);
+    }
+
+    // Update is called once per frame
 	void Update () {
 	}
 
