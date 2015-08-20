@@ -2,20 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public interface IHPChangeListener {
-    void OnHpChange(float oldHP, float newHP);
-}
-
 public class Entity : MonoBehaviour {
     public float hp { get; protected set; }
     protected float armor;
 
-    public List<IHPChangeListener> HPListeners = new List<IHPChangeListener>();
+    public delegate void HPChange(float beforehp, float afterhp);
 
+    public event HPChange hpChange;
     // Use this for initialization
     void Start () {
-	
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,7 +24,7 @@ public class Entity : MonoBehaviour {
         {
             var oldHP = hp;
             hp -= damagable.GetDamage();
-            HPListeners.ForEach(listener => listener.OnHpChange(oldHP, hp));
+            if (hpChange != null) hpChange(oldHP, hp);
             if (hp <= 0)
             {
                 Die();
