@@ -39,6 +39,6 @@ public class Weapon : MonoBehaviour
         var newBulletGO = Instantiate(BulletPrefab, transform.position, Quaternion.identity) as GameObject;
         var newBullet = newBulletGO.GetComponent<Bullet>();
 
-        newBullet.Initialize(dir);
+//        newBullet.Initialize(dir);
     }
 }
