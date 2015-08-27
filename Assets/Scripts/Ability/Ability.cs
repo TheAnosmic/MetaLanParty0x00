@@ -17,8 +17,17 @@ public abstract class Ability : MonoBehaviour
 			cooldownTimer = Cooldown;
 		}
 	}
+    public void Execute(Vector3 target)
+    {
+        if (cooldownTimer == 0)
+        {
+            Shoot(target);
+            cooldownTimer = Cooldown;
+        }
+    }
 
 	protected abstract void Shoot(Transform target);
+    protected abstract void Shoot(Vector3 target);
 
 	protected virtual void Start() 
 	{
