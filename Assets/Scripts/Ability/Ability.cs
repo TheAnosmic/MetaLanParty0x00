@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 
@@ -12,18 +12,30 @@ public abstract class Ability : MonoBehaviour
 
 	public void Execute(Transform target)
 	{
-		if (CanExecute()) {
+		if (CanExecute()) 
+		{
 			Shoot(target);
 			cooldownTimer = Cooldown;
 		}
 	}
+	
+	public void Execute(Vector3 target)
+    {
+        if (CanExecute())
+        {
+            Shoot(target);
+            cooldownTimer = Cooldown;
+        }
+    }
 
+	
     public bool CanExecute()
     {
         return cooldownTimer < Mathf.Epsilon;
     }
 
     protected abstract void Shoot(Transform target);
+    protected abstract void Shoot(Vector3 target);
 
 	protected virtual void Start() 
 	{

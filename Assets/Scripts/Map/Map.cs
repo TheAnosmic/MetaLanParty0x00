@@ -14,6 +14,7 @@ public class Map : MonoBehaviour {
         factory.PossibleEnemies = PossibleEnemies;
         factory.Target = Player;
         InvokeRepeating("Launch", 0.1f, 0.3F);
+
     }
 
     void Launch()
