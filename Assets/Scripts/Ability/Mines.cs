@@ -12,6 +12,11 @@ public class Mines : Ability
         Physics2D.IgnoreCollision(newMine.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
+    protected override void Shoot(Vector3 target)
+    {
+        throw new System.NotImplementedException();
+    }
+
     void Awake()
     {
         MaxRange = 0;
