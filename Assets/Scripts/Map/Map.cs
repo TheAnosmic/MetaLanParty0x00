@@ -13,8 +13,8 @@ public class Map : MonoBehaviour {
 	void Start () {
         factory = new EnemyFactory(gameObject);
         factory.PossibleEnemies = PossibleEnemies;
-        
-        target = Instantiate(Player);
+
+        target = GameObject.Find("Target");
         factory.Target = target;
         InvokeRepeating("Launch", 2, 0.3F);
     }
