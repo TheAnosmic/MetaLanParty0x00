@@ -12,6 +12,7 @@ public class Handgun : Ability
         Vector3 direction = (target.position - transform.position).normalized;
         GameObject newBullet = (GameObject)Instantiate(bullet, this.transform.position + direction * 0.5f, transform.rotation);
 		newBullet.GetComponent<Rigidbody2D>().velocity = ((target.position - transform.position).normalized * bulletSpeed);
+        Physics2D.IgnoreCollision(newBullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 	}
 
 	protected override void Start()

@@ -12,13 +12,18 @@ public abstract class Ability : MonoBehaviour
 
 	public void Execute(Transform target)
 	{
-		if (cooldownTimer == 0) {
+		if (CanExecute()) {
 			Shoot(target);
 			cooldownTimer = Cooldown;
 		}
 	}
 
-	protected abstract void Shoot(Transform target);
+    public bool CanExecute()
+    {
+        return cooldownTimer < Mathf.Epsilon;
+    }
+
+    protected abstract void Shoot(Transform target);
 
 	protected virtual void Start() 
 	{

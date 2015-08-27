@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShittingCow : Enemy {
+public class ShittingCow : Enemy
+{
+    public Mines miner;
 
 	// Use this for initialization
 	void Start () {

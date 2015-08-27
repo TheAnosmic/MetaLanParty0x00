@@ -6,6 +6,12 @@ public class Player : Entity
     public float speed = 10.0f;
     public float bulletSpeed = 1.0f;
     public Handgun gun;
+    private Rigidbody2D rb;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     // Use this for initialization
     new void Start()
@@ -52,8 +58,14 @@ public class Player : Entity
         {
         float xMovement = Input.GetAxis("Horizontal");
         float yMovement = Input.GetAxis("Vertical");
-        var movement = new Vector2(xMovement, yMovement);
-        GetComponent<Rigidbody2D>().velocity = movement*speed;
+        if (true)// max speed 
+        {
+            var movement = new Vector2(xMovement, yMovement);
+            rb.velocity = movement*speed;
+        }
+        //        
+//
+//        GetComponent<Rigidbody2D>().velocity = movement*speed;
 
     }
 
