@@ -4,7 +4,6 @@ using System.Collections;
 public class Player : Entity
 {
     public float speed = 10.0f;
-    public float bulletSpeed = 1.0f;
     public Handgun gun;
 
     // Use this for initialization
@@ -19,6 +18,16 @@ public class Player : Entity
     void Update()
     {
         transform.rotation = _2DHelper.LookAt(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Vector3 toShoot = new Vector3(Input.mousePosition.x, Input.mousePosition.y,0);
+            toShoot = Camera.main.ScreenToWorldPoint(toShoot);
+            //z must be zero to avoid stupid things.
+            toShoot.z = 0;
+            
+            gun.Execute(toShoot); 
+        }
     }
 
     void FixedUpdate()
