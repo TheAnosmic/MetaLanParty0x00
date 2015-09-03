@@ -8,6 +8,11 @@ public class Entity : MonoBehaviour {
     public float hp { get; protected set; }
     protected float armor;
 
+    protected bool isAlive
+    {
+        get { return hp > 0; }
+    }
+
     public delegate void HPChange(float beforehp, float afterhp);
 
     public event HPChange hpChange;
@@ -44,6 +49,6 @@ public class Entity : MonoBehaviour {
     protected virtual void Die()
     {
         gameObject.SetActive(false);
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

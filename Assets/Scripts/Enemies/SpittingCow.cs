@@ -25,6 +25,10 @@ public class SpittingCow : Enemy
     // Update is called once per frame
     void Update()
     {
+        if (!shouldAct)
+        {
+            return;
+        }
         if (m_ai.ShouldAttack(transform.position))
         {
             m_ability.Execute(target);
@@ -38,6 +42,10 @@ public class SpittingCow : Enemy
 
     void FixedUpdate()
     {
+        if (!shouldAct)
+        {
+            return;
+        }
         if (moving)
         {
             var dst = m_ai.GetWalkDestination();
