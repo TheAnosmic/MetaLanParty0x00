@@ -11,7 +11,7 @@ public class Player : Entity
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        hp = 50;
+        hp = 999999;
         armor = 0;
     }
 

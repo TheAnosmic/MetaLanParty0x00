@@ -21,10 +21,12 @@ public class UIView : MonoBehaviour
         target.hpChange += OnHPChange;
         HPBar.maxValue = target.hp;
         HPBar.value = target.hp;
+        /*
         Ability a = target.GetComponent<Ability>();
         a.onCoolDownChange += OnCooldownChange;
         ReloadBar.maxValue = a.Cooldown;
         ReloadBar.value = a.Cooldown;
+         */
 
     }
 
@@ -45,6 +47,6 @@ public class UIView : MonoBehaviour
 
     void Destroy()
     {
-        target.hpChange -= OnHPChange;        
+        target.hpChange -= OnHPChange;
     }
 }
