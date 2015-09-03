@@ -32,6 +32,10 @@ public class SlidingCow : Enemy
     // Update is called once per frame
     void Update()
     {
+        if (!shouldAct)
+        {
+            moving = false;
+        }
         if (m_ai.ShouldAttack(transform.position))
         {
             m_ability.Execute(target);
@@ -45,6 +49,10 @@ public class SlidingCow : Enemy
 
     void FixedUpdate()
     {
+        if (!shouldAct)
+        {
+            return;
+        }
         if (moving)
         {    
             var dst = m_ai.GetWalkDestination();
