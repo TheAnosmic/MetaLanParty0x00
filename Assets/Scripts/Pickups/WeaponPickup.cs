@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShittingCow : Enemy
+public class WeaponPickup : Pickup
 {
+    public GameObject weapon;
 
 	// Use this for initialization
-	void Start () {
-	
+	void Start ()
+	{
+	    
 	}
 	
 	// Update is called once per frame

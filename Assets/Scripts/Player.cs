@@ -4,7 +4,8 @@ using System.Collections;
 public class Player : Entity
 {
     public float speed = 10.0f;
-    public Handgun gun;
+
+    protected Ability mAbility { get; set; }
 	
     private Rigidbody2D rb;
 
@@ -13,6 +14,7 @@ public class Player : Entity
         rb = GetComponent<Rigidbody2D>();
         hp = 50;
         armor = 0;
+        mAbility = GetComponentInChildren<Ability>();
     }
 
     // Update is called once per frame
@@ -27,7 +29,7 @@ public class Player : Entity
             //z must be zero to avoid stupid things.
             toShoot.z = 0;
             
-            gun.Execute(toShoot); 
+            mAbility.Execute(toShoot); 
         }
     }
 
@@ -39,5 +41,26 @@ public class Player : Entity
 		var movement = new Vector2(xMovement, yMovement);
 		rb.velocity = movement * speed;
 	}
+
+    protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("WeaponPickup"))
+        {
+            switchWeapon(other.gameObject.GetComponent<WeaponPickup>().weapon);
+        }
+        else
+        {
+            base.OnTriggerEnter2D(other);
+        }
+    }
+
+    private void switchWeapon(GameObject newWeaponPrefab)
+    {
+        Destroy(mAbility.gameObject);
+        GameObject newWeapon = Instantiate(newWeaponPrefab, transform.position, transform.rotation) as GameObject;
+        newWeapon.transform.parent = transform;
+        mAbility = newWeapon.GetComponent<Ability>();
+        Debug.Log("Switched weapon");
+    }
 
 }
