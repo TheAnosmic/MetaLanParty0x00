@@ -5,10 +5,14 @@ using System.Collections;
 public abstract class Ability : MonoBehaviour
 {
 	private float cooldownTimer;
-	
+
+    public delegate void OnCooldownChange(float before, float after);
+
+    public event OnCooldownChange onCoolDownChange;
+
 	protected float MaxRange { get; set; }
 	protected float MinRange { get; set; }
-	protected float Cooldown { get; set; }
+	public float Cooldown { get; protected set; }
 
 	public void Execute(Transform target)
 	{
@@ -42,11 +46,16 @@ public abstract class Ability : MonoBehaviour
 		cooldownTimer = Cooldown;
 	}
 
-    protected virtual void Update() 
-	{
+    protected virtual void Update()
+    {
+        float coolDownBefore = cooldownTimer;
 		cooldownTimer -= 1 * Time.deltaTime;
 		if (cooldownTimer < 0) {
 			cooldownTimer = 0;
+		    if (onCoolDownChange != null)
+		    {
+		        onCoolDownChange(cooldownTimer, cooldownTimer);
+		    }
 		}
 	}
 }

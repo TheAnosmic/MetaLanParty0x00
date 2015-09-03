@@ -12,9 +12,10 @@ public class Player : Entity
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        hp = 50;
+        hp = 200;
         armor = 0;
         mAbility = GetComponentInChildren<Ability>();
+
     }
 
     // Update is called once per frame
