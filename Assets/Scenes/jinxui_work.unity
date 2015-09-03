@@ -917,7 +917,6 @@ GameObject:
   - 223: {fileID: 914537423}
   - 114: {fileID: 914537422}
   - 114: {fileID: 914537421}
-  - 50: {fileID: 914537425}
   m_Layer: 5
   m_Name: CanvasUI
   m_TagString: Untagged
@@ -997,22 +996,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!50 &914537425
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 914537419}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &952762421
 Prefab:
   m_ObjectHideFlags: 0
