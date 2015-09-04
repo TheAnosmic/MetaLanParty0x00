@@ -1,23 +1,33 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-public interface IHPChangeListener {
-    void OnHpChange(float oldHP, float newHP);
-}
+using UnityEngine.Networking;
 
 public class Entity : MonoBehaviour {
     public float hp { get; protected set; }
     protected float armor;
 
-    public List<IHPChangeListener> HPListeners = new List<IHPChangeListener>();
+    protected bool isAlive
+    {
+        get { return hp > 0; }
+    }
 
+    public delegate void HPChange(float beforehp, float afterhp);
+
+    public event HPChange hpChange;
     // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
+    protected void Start ()
+    {
+        hpChange += OnHpChange;
+    }
+
+    private void OnHpChange(float beforehp, float afterhp)
+    {
+        DamageTextCreator.Create(this, afterhp - beforehp);
+    }
+
+    // Update is called once per frame
 	void Update () {
 	}
 
@@ -28,7 +38,7 @@ public class Entity : MonoBehaviour {
         {
             var oldHP = hp;
             hp -= damagable.GetDamage();
-            HPListeners.ForEach(listener => listener.OnHpChange(oldHP, hp));
+            if (hpChange != null) hpChange(oldHP, hp);
             if (hp <= 0)
             {
                 Die();
@@ -39,6 +49,6 @@ public class Entity : MonoBehaviour {
     protected virtual void Die()
     {
         gameObject.SetActive(false);
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

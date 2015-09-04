@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShittingCow : Enemy {
+public class ShittingCow : Enemy
+{
 
 	// Use this for initialization
 	void Start () {

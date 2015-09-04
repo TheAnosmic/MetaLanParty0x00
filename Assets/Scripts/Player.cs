@@ -1,81 +1,67 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
-
-public enum Movement
-{
-    StandingStill = 0,
-    Left = 1,
-    Right = 2,
-    Up = 3,
-    Down = 4,
-}
 
 public class Player : Entity
 {
-    public Movement xMovement;
-    public Movement yMovement;
+    public float speed = 10.0f;
 
-    // Use this for initialization
-    void Start()
+    protected Ability mAbility { get; set; }
+	
+    private Rigidbody2D rb;
+
+    void Awake()
     {
-        hp = 50;
+        rb = GetComponent<Rigidbody2D>();
+        hp = 200;
         armor = 0;
+        mAbility = GetComponentInChildren<Ability>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        xMovement = Movement.StandingStill;
-        yMovement = Movement.StandingStill;
+        transform.rotation = _2DHelper.LookAt(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetButtonDown("Fire1"))
         {
-            yMovement = Movement.Up;
+            Vector3 toShoot = new Vector3(Input.mousePosition.x, Input.mousePosition.y,0);
+            toShoot = Camera.main.ScreenToWorldPoint(toShoot);
+            //z must be zero to avoid stupid things.
+            toShoot.z = 0;
+            
+            mAbility.Execute(toShoot); 
         }
-        if (Input.GetKey(KeyCode.S))
-        {
-            yMovement = Movement.Down;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            xMovement = Movement.Left;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            xMovement = Movement.Right;
-        }
-//        GetComponent<Animator>().SetInteger("Direction", (int)xMovement);
-        //if (yMovement != Movement.StandingStill)
-        //    GetComponent<Animator>().SetInteger("Direction", (int)yMovement);
     }
+
 
     void FixedUpdate()
+	{
+        float xMovement = Input.GetAxis("Horizontal");
+        float yMovement = Input.GetAxis("Vertical");
+		var movement = new Vector2(xMovement, yMovement);
+		rb.velocity = movement * speed;
+	}
+
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        Vector2 move = new Vector2(0, 0);
-
-        if (yMovement == Movement.Up)
+        if (other.gameObject.CompareTag("WeaponPickup"))
         {
-            move.y += 1;
+            switchWeapon(other.gameObject.GetComponent<WeaponPickup>().weapon);
         }
-        else if (yMovement == Movement.Down)
+        else
         {
-            move.y -= 1;
+            base.OnTriggerEnter2D(other);
         }
-
-        if (xMovement == Movement.Right)
-        {
-            move.x += 1;
-        }
-        else if (xMovement == Movement.Left)
-        {
-            move.x -= 1;
-        }
-
-        move.Normalize();
-        move = move * 0.1f;
-        transform.Translate(move.x, move.y, 0);
-
     }
 
+    private void switchWeapon(GameObject newWeaponPrefab)
+    {
+        Destroy(mAbility.gameObject);
+        GameObject newWeapon = Instantiate(newWeaponPrefab, transform.position, transform.rotation) as GameObject;
+        newWeapon.transform.parent = transform;
+        mAbility = newWeapon.GetComponent<Ability>();
+        Debug.Log("Switched weapon");
+    }
 
 }

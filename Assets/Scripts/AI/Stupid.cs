@@ -14,6 +14,10 @@ class Stupid : IAI
 	
 	public bool ShouldAttack(Vector3 currentPosition)
 	{
+	    if (null == target)
+	    {
+	        return false;
+	    }
 		if (Vector3.Distance(currentPosition, target.position) < range)
 		{
 			return true;
