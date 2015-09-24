@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class EnemyFactory {
+public class EnemyFactory : NetworkBehaviour {
     public GameObject Target { get; set; }
     public GameObject[] PossibleEnemies { get; set; }
     private GameObject m_producer;
@@ -12,6 +13,7 @@ public class EnemyFactory {
         m_producer = producer;
     }
 
+    [ServerCallback]
     public void Create(int count, Vector2 topLeft, Vector2 bottomRight)
     {
         var enemiesCount = PossibleEnemies.Length;
@@ -26,7 +28,9 @@ public class EnemyFactory {
                 position.x = Random.Range(topLeft.x, bottomRight.x);
                 position.y = Random.Range(topLeft.y, bottomRight.y);
                 enemy.GetComponent<Enemy>().target = Target.transform;
-                var genaratedEnemy = Object.Instantiate(enemy, position, m_producer.transform.rotation) as Enemy;
+                enemy.transform.position = position;
+                enemy.transform.rotation = m_producer.transform.rotation;
+                NetworkServer.Spawn(enemy);
             }
         }    
     }

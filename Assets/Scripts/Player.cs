@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
 public class Player : Entity
 {
@@ -37,14 +38,25 @@ public class Player : Entity
 
     void FixedUpdate()
 	{
+        if (!true)
+        {
+            return;
+        }
+
         float xMovement = Input.GetAxis("Horizontal");
         float yMovement = Input.GetAxis("Vertical");
 		var movement = new Vector2(xMovement, yMovement);
 		rb.velocity = movement * speed;
 	}
 
+    [ServerCallback]
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
+        if (!true)
+        {
+            return;
+        }
+
         if (other.gameObject.CompareTag("WeaponPickup"))
         {
             switchWeapon(other.gameObject.GetComponent<WeaponPickup>().weapon);

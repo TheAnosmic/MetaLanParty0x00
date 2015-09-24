@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class Bullet : MonoBehaviour, IDamageable
+public class Bullet : NetworkBehaviour, IDamageable
 {
     public float lifespan;
     public float damage;
@@ -11,9 +12,10 @@ public class Bullet : MonoBehaviour, IDamageable
         Destroy(gameObject, lifespan);
     }
 
+    [ServerCallback]
     void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(gameObject);
+        NetworkServer.Destroy(gameObject);
     }
 
     public float GetDamage()

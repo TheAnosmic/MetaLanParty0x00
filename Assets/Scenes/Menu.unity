@@ -456,7 +456,7 @@ MonoBehaviour:
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: Menu
-  m_OnlineScene: 
+  m_OnlineScene: MultiGame
   m_SpawnPrefabs: []
   m_CustomConfig: 0
   m_MaxConnections: 4
@@ -479,10 +479,10 @@ MonoBehaviour:
     m_MaxSentMessageQueueSize: 128
     m_IsAcksLong: 0
     m_Channels: []
-  m_Channels: 
-  m_UseSimulator: 0
+  m_Channels: 0500000000000000
+  m_UseSimulator: 1
   m_SimulatedLatency: 1
-  m_PacketLossPercentage: 0
+  m_PacketLossPercentage: .699999988
   m_MatchHost: mm.unet.unity3d.com
   m_MatchPort: 443
   isNetworkActive: 0

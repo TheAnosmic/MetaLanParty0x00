@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
 
-public abstract class Ability : MonoBehaviour
+public abstract class Ability : NetworkBehaviour
 {
 	private float cooldownTimer;
 

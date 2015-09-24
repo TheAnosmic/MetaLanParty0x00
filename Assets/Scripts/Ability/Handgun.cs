@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
 public class Handgun : Ability
 {
@@ -15,9 +16,11 @@ public class Handgun : Ability
     {
         bullet.GetComponent<Bullet>().damage = 1f;
         Vector3 direction = (target - transform.position).normalized;
-        GameObject newBullet = (GameObject)Instantiate(bullet, this.transform.position + direction * 0.5f, transform.rotation);
-        newBullet.GetComponent<Rigidbody2D>().velocity = ((target - transform.position).normalized * bulletSpeed);
-        Physics2D.IgnoreCollision(newBullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        bullet.GetComponent<Rigidbody2D>().velocity = ((target - transform.position).normalized * bulletSpeed);
+        Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        bullet.transform.position = this.transform.position + direction * 0.5f;
+        bullet.transform.rotation = this.transform.rotation;
+        NetworkServer.Spawn(bullet);
     }
 
 	protected override void Start()

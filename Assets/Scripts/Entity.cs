@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
 
-public class Entity : MonoBehaviour {
+public class Entity : NetworkBehaviour {
     public float hp { get; protected set; }
     protected float armor;
 
@@ -17,6 +17,7 @@ public class Entity : MonoBehaviour {
 
     public event HPChange hpChange;
     // Use this for initialization
+  
     protected void Start ()
     {
         hpChange += OnHpChange;
@@ -31,6 +32,7 @@ public class Entity : MonoBehaviour {
 	void Update () {
 	}
 
+    [ServerCallback]
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         var damagable = other.GetComponent<IDamageable>();
@@ -46,9 +48,11 @@ public class Entity : MonoBehaviour {
         }
     }
 
+    [ServerCallback]
     protected virtual void Die()
     {
         gameObject.SetActive(false);
-        Destroy(gameObject);
+        
+        NetworkServer.Destroy(gameObject);
     }
 }

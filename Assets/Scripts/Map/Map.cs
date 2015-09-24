@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class Map : MonoBehaviour {
+public class Map : NetworkBehaviour {
 
     public Texture2D Background;
     public GameObject[] PossibleEnemies;
@@ -9,7 +10,9 @@ public class Map : MonoBehaviour {
     private EnemyFactory factory;
 
 	// Use this for initialization
-	void Start () {
+
+	[ServerCallback]
+    void Start () {
         factory = new EnemyFactory(gameObject);
         factory.PossibleEnemies = PossibleEnemies;
         factory.Target = Player;
@@ -17,6 +20,7 @@ public class Map : MonoBehaviour {
 
     }
 
+    [ServerCallback]
     void Launch()
     {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length < 10)

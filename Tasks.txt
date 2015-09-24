@@ -1,0 +1,11 @@
+Game Flow:
+	* Join Game
+		* Enter IP, PORT & start play
+	* Host Game
+		* Start single Play & other players can join
+
+
+
+* Add one (or more) Players to Game
+* Sync Cows 
+* Sync Bullets
