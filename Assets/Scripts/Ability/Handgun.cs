@@ -24,7 +24,7 @@ public class Handgun : Ability
 	{
 		MaxRange = 3;
 		MinRange = 1;
-		Cooldown = 1;
+		Cooldown = 0.1f;
 		base.Start();
 	}
 }

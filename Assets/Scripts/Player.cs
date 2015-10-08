@@ -21,16 +21,14 @@ public class Player : Entity
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = _2DHelper.LookAt(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
         if (Input.GetButton("Fire1"))
         {
-            Vector3 toShoot = new Vector3(Input.mousePosition.x, Input.mousePosition.y,0);
+            Vector3 toShoot = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
             toShoot = Camera.main.ScreenToWorldPoint(toShoot);
             //z must be zero to avoid stupid things.
             toShoot.z = 0;
-            
-            mAbility.Execute(toShoot); 
+            mAbility.Execute(toShoot);
         }
     }
 
