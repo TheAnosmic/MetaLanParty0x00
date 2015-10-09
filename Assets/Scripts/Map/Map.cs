@@ -6,6 +6,7 @@ public class Map : MonoBehaviour {
     public Texture2D Background;
     public GameObject[] PossibleEnemies;
     public GameObject Player;
+    public int maxEnemies;
     private EnemyFactory factory;
 
 	// Use this for initialization
@@ -19,7 +20,7 @@ public class Map : MonoBehaviour {
 
     void Launch()
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length < 10)
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length < maxEnemies)
         {
             factory.Create(1, new Vector2(-10, -10), new Vector2(10, 10));
         }

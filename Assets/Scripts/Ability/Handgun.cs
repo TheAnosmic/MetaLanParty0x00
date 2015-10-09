@@ -17,14 +17,14 @@ public class Handgun : Ability
         Vector3 direction = (target - transform.position).normalized;
         GameObject newBullet = (GameObject)Instantiate(bullet, this.transform.position + direction * 0.5f, transform.rotation);
         newBullet.GetComponent<Rigidbody2D>().velocity = ((target - transform.position).normalized * bulletSpeed);
-        Physics2D.IgnoreCollision(newBullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        Physics2D.IgnoreCollision(newBullet.GetComponent<Collider2D>(), transform.parent.GetComponent<Collider2D>());
     }
 
 	protected override void Start()
 	{
 		MaxRange = 3;
 		MinRange = 1;
-		Cooldown = 1;
+		Cooldown = 0.1f;
 		base.Start();
 	}
 }
