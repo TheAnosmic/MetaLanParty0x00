@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class Bullet : MonoBehaviour, IDamageable
+public class Bullet : NetworkBehaviour, IDamageable
 {
     public float lifespan;
     public float damage;

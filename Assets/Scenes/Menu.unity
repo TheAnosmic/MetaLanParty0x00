@@ -209,12 +209,14 @@ MonoBehaviour:
   m_SendPeerInfo: 0
   m_MaxDelay: .00999999978
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 0}
+  m_PlayerPrefab: {fileID: 149202, guid: 48927fdda4e846c458547fb4041bbfc3, type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: Menu
   m_OnlineScene: MP_Game
-  m_SpawnPrefabs: []
+  m_SpawnPrefabs:
+  - {fileID: 111926, guid: 23b1de793c91c30418caf0017156d3b1, type: 2}
+  - {fileID: 111806, guid: 9541759a121234830b96868c79845bd1, type: 2}
   m_CustomConfig: 1
   m_MaxConnections: 4
   m_ConnectionConfig:

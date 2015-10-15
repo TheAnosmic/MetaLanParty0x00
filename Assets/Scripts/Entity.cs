@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
 
-public class Entity : MonoBehaviour {
+public class Entity : NetworkBehaviour {
     public float hp { get; protected set; }
     protected float armor;
 
