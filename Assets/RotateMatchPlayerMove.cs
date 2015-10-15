@@ -3,7 +3,6 @@ using System.Collections;
 
 public class RotateMatchPlayerMove : MonoBehaviour
 {
-
     private PlayerActionEvents events;
     Animator animator;
 
