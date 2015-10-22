@@ -995,6 +995,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54fdade99abd064789324efd35ba6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitAudioClip: {fileID: 8300000, guid: a8df99a7e4239e745a1695c25662aea2, type: 3}
+  dieAudioClip: {fileID: 8300000, guid: 1ca913e5688d6c0449c2df983d510857, type: 3}
   target: {fileID: 0}
   gun: {fileID: 11489146}
 --- !u!114 &11424110
@@ -1135,6 +1137,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: dieAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ca913e5688d6c0449c2df983d510857, type: 3}
+    - target: {fileID: 0}
+      propertyPath: hitAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a8df99a7e4239e745a1695c25662aea2, type: 3}
+    - target: {fileID: 0}
+      propertyPath: BypassReverbZones
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

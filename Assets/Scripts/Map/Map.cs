@@ -13,17 +13,18 @@ public class Map : MonoBehaviour {
     private PowerUpsManager powerUpsManager;
     public PowerUp PowerUpPrefab;
 
-    // Use this for initialization
-    void Start () {
+	// Use this for initialization
+	void Start () {
         factory = new EnemyFactory(gameObject);
         factory.PossibleEnemies = PossibleEnemies;
         factory.Target = Player;
         powerUpsManager = new PowerUpsManager(PowerUpPrefab);
         InvokeRepeating("Launch", 0.1f, 0.3F);
-        InvokeRepeating("CreatePrefab", 0.1f, 15.3F);
+        // Create power up every 30 sec
+        InvokeRepeating("CreatePrefab", 0.1f, 30F);
     }
 
-    void Launch()
+    private void Launch()
     {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length < maxEnemies)
         {
@@ -34,7 +35,7 @@ public class Map : MonoBehaviour {
 
     void CreatePrefab()
     {
+        // TODO: random location??
         this.powerUpsManager.GeneratePowerUp();
     }
-    
 }

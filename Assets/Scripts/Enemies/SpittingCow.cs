@@ -22,7 +22,7 @@ public class SpittingCow : Enemy
 
         gun.bulletSpeed = 15;
 
-        hp = 1;
+        hp = 40;
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class SpittingCow : Enemy
         }
         if (m_ai.ShouldAttack(transform.position))
         {
-            m_ability.Execute(target);
+            m_ability.Execute(target.position);
             moving = false;
         }
         else
@@ -63,7 +63,7 @@ public class SpittingCow : Enemy
         }
     }
 
-    protected virtual void Die()
+    protected override void Die()
     {
         gameObject.SetActive(false);
         Destroy(gameObject, 0.48f);

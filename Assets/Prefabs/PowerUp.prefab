@@ -86,6 +86,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35336ca3867eb484988d4543cd2564f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PowerUps:
+  - {fileID: 11433460, guid: 6d0312f9508f19c469f1581664f29ffe, type: 2}
+  - {fileID: 11469674, guid: 2560e89a26eac2840aa1fa7c7c406edb, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -94,9 +97,23 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: PowerUps.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_TagString
       value: PowerUp
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: PowerUps.Array.data[0]
+      value: 
+      objectReference: {fileID: 11433460, guid: 6d0312f9508f19c469f1581664f29ffe,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: PowerUps.Array.data[1]
+      value: 
+      objectReference: {fileID: 11469674, guid: 2560e89a26eac2840aa1fa7c7c406edb,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 124336}

@@ -6,11 +6,6 @@ public class Machinegun : Ability
 	public GameObject bullet;
 	protected float bulletSpeed = 15f;
 
-	protected override void Shoot(Transform target)
-	{
-        Shoot(target.position);
-	}
-	
     protected override void Shoot(Vector3 target)
     {
         bullet.GetComponent<Bullet>().damage = 0.1f;
