@@ -1,22 +1,15 @@
 fileFormatVersion: 2
-guid: 340ee2d752038d545b8336b4c7f4da63
-timeCreated: 1445543420
+guid: 2d66aafb7372d324994bee156d5b38ed
+timeCreated: 1445550100
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: Cylinder_MeshPart0
-    100002: Cylinder_MeshPart1
-    100004: //RootNode
-    400000: Cylinder_MeshPart0
-    400002: Cylinder_MeshPart1
-    400004: //RootNode
-    2300000: Cylinder_MeshPart0
-    2300002: Cylinder_MeshPart1
-    3300000: Cylinder_MeshPart0
-    3300002: Cylinder_MeshPart1
-    4300000: Cylinder_MeshPart0
-    4300002: Cylinder_MeshPart1
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cylinder
     7400000: Default Take
     9500000: //RootNode
   materials:
