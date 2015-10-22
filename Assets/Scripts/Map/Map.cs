@@ -18,13 +18,11 @@ public class Map : MonoBehaviour {
 
     }
 
-    void Launch()
+    private void Launch()
     {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length < maxEnemies)
         {
             factory.Create(1, new Vector2(-10, -10), new Vector2(10, 10));
         }
-        
     }
-    
 }
