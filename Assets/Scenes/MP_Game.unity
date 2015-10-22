@@ -654,7 +654,7 @@ MonoBehaviour:
   PossibleEnemies:
   - {fileID: 111806, guid: 9541759a121234830b96868c79845bd1, type: 2}
   Player: {fileID: 0}
-  maxEnemies: 0
+  maxEnemies: 4
 --- !u!4 &1542315230
 Transform:
   m_ObjectHideFlags: 0
