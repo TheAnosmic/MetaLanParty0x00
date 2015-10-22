@@ -15,13 +15,23 @@ public class Player : Entity
         hp = 200;
         armor = 0;
         mAbility = GetComponentInChildren<Ability>();
-
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        if (isLocalPlayer)
+        {
+            Camera.main.GetComponent<FollowObject>().AttachPlayer(this.gameObject);
+        }
+    }
+
+    // Update is called once per frames
     void Update()
     {
-
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         if (Input.GetButton("Fire1"))
         {
             Vector3 toShoot = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
@@ -35,6 +45,10 @@ public class Player : Entity
 
     void FixedUpdate()
 	{
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         float xMovement = Input.GetAxis("Horizontal");
         float yMovement = Input.GetAxis("Vertical");
 		var movement = new Vector2(xMovement, yMovement);

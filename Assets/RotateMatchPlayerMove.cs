@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class RotateMatchPlayerMove : MonoBehaviour
+public class RotateMatchPlayerMove : NetworkBehaviour
 {
 
     private PlayerActionEvents events;
@@ -12,6 +13,11 @@ public class RotateMatchPlayerMove : MonoBehaviour
         animator = GetComponent<Animator>();
         events = transform.parent.gameObject.GetComponent<PlayerActionEvents>();
         events.moveDirectionChange += onMoveDirectionChange;
+        //GetComponent<NetworkAnimator>().SetParameterAutoSend(0, true);
+        if (!isLocalPlayer)
+        {
+            //GetComponent<RotateMatchPlayerMove>().enabled = false;
+        }
     }
 
     void onMoveDirectionChange(float xMovement, float yMovement)
