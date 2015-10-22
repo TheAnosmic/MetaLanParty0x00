@@ -1,12 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Player;
 
 public class Player : Entity
 {
-    public float speed = 10.0f;
+    public ComplexNumber speed = new ComplexNumber(10.0f);
 
     protected Ability mAbility { get; set; }
-	
+
     private Rigidbody2D rb;
 
     void Awake()
@@ -44,16 +45,16 @@ public class Player : Entity
 
 
     void FixedUpdate()
-	{
+    {
         if (!isLocalPlayer)
         {
             return;
         }
         float xMovement = Input.GetAxis("Horizontal");
         float yMovement = Input.GetAxis("Vertical");
-		var movement = new Vector2(xMovement, yMovement);
-		rb.velocity = movement * speed;
-	}
+        var movement = new Vector2(xMovement, yMovement);
+        rb.velocity = movement * speed.Value;
+    }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {

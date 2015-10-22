@@ -589,10 +589,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Background: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-  PossibleEnemies:
-  - {fileID: 111806, guid: 9541759a121234830b96868c79845bd1, type: 2}
+  PossibleEnemies: []
   Player: {fileID: 0}
   maxEnemies: 0
+  PowerUpPrefab: {fileID: 11426004, guid: d46b2d7230bdaf841b47b34b426a7edb, type: 2}
 --- !u!4 &1542315230
 Transform:
   m_ObjectHideFlags: 0
