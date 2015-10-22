@@ -6,11 +6,7 @@ public class Handgun : Ability
 	public GameObject bullet;
 	public float bulletSpeed = 1f;
 
-	protected override void Shoot(Transform target)
-	{
-        Shoot(target.position);
-	}
-	
+
     protected override void Shoot(Vector3 target)
     {
         bullet.GetComponent<Bullet>().damage = 1f;

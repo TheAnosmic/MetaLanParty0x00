@@ -14,19 +14,29 @@ public abstract class Ability : MonoBehaviour
 	protected float MinRange { get; set; }
 	public float Cooldown { get; protected set; }
 
-	public void Execute(Transform target)
-	{
-		if (CanExecute()) 
-		{
-			Shoot(target);
-			cooldownTimer = Cooldown;
-		}
-	}
+    private AudioSource executeSource;
+
+    protected virtual void Start()
+    {
+        executeSource = GetComponent<AudioSource>();
+
+        cooldownTimer = Cooldown;
+    }
+
+    private void playExecuteSound()
+    {
+        if (null != executeSource)
+        {
+            executeSource.pitch = Random.Range(0.9f, 1.1f);
+            executeSource.Play();
+        }
+    }
 	
 	public void Execute(Vector3 target)
     {
         if (CanExecute())
         {
+            playExecuteSound();
             Shoot(target);
             cooldownTimer = Cooldown;
         }
@@ -38,13 +48,7 @@ public abstract class Ability : MonoBehaviour
         return cooldownTimer < Mathf.Epsilon;
     }
 
-    protected abstract void Shoot(Transform target);
     protected abstract void Shoot(Vector3 target);
-
-	protected virtual void Start() 
-	{
-		cooldownTimer = Cooldown;
-	}
 
     protected virtual void Update()
     {
