@@ -96,7 +96,6 @@ GameObject:
   - 20: {fileID: 446334916}
   - 92: {fileID: 446334915}
   - 124: {fileID: 446334914}
-  - 81: {fileID: 446334913}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -104,13 +103,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &446334913
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 446334912}
-  m_Enabled: 1
 --- !u!124 &446334914
 Behaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +201,7 @@ MonoBehaviour:
   m_SendPeerInfo: 0
   m_MaxDelay: .00999999978
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 149202, guid: 48927fdda4e846c458547fb4041bbfc3, type: 2}
+  m_PlayerPrefab: {fileID: 149202, guid: 3a16826a3d4adbc44b021dc16b5f8457, type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: Menu

@@ -4,7 +4,6 @@ using UnityEngine.Networking;
 
 public class RotateMatchPlayerMove : NetworkBehaviour
 {
-
     private PlayerActionEvents events;
     Animator animator;
 

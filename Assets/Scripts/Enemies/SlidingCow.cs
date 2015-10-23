@@ -38,7 +38,7 @@ public class SlidingCow : Enemy
         }
         if (m_ai.ShouldAttack(transform.position))
         {
-            m_ability.Execute(target);
+            m_ability.Execute(target.position);
             moving = false;
         }
         else

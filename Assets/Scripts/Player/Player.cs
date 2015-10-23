@@ -1,9 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using Assets.Scripts.Player;
 
 public class Player : Entity
 {
-    public float speed = 10.0f;
+    public ComplexNumber speed = new ComplexNumber(10.0f);
 
     protected Ability mAbility { get; set; }
 	
@@ -34,10 +35,13 @@ public class Player : Entity
         }
         if (Input.GetButton("Fire1"))
         {
-            Vector3 toShoot = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+            /* Vector3 toShoot = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
             toShoot = Camera.main.ScreenToWorldPoint(toShoot);
             //z must be zero to avoid stupid things.
             toShoot.z = 0;
+            */
+            Vector3 toShoot =
+                _2DHelper.GetWorldPositionOnPlane(new Vector3(Input.mousePosition.x, Input.mousePosition.y), 0);
             mAbility.Execute(toShoot);
         }
     }
@@ -52,7 +56,7 @@ public class Player : Entity
         float xMovement = Input.GetAxis("Horizontal");
         float yMovement = Input.GetAxis("Vertical");
 		var movement = new Vector2(xMovement, yMovement);
-		rb.velocity = movement * speed;
+        rb.velocity = movement * speed.Value;
 	}
 
     protected virtual void OnTriggerEnter2D(Collider2D other)

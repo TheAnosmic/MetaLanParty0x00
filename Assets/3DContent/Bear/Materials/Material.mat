@@ -98,7 +98,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .5
+        second: 1
       data:
         first:
           name: _Metallic
@@ -110,7 +110,7 @@ Material:
       data:
         first:
           name: _Parallax
-        second: .0199999996
+        second: .0260000005
       data:
         first:
           name: _OcclusionStrength
