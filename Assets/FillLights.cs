@@ -10,8 +10,7 @@ public class FillLights : MonoBehaviour {
 
     List<Light> lights;
     bool decresing;
-
-
+    
 	void Start () {
 
         lights = new List<Light>();
@@ -37,11 +36,11 @@ public class FillLights : MonoBehaviour {
         {
             if (decresing)
             {
-                i.intensity -= 0.05f;
+                i.intensity -= 2f * Time.deltaTime;
             }
             else
             {
-                i.intensity += 0.05f;
+                i.intensity += 2f * Time.deltaTime;
             }
         }
 

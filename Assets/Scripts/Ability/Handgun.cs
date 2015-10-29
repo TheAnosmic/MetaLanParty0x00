@@ -11,7 +11,10 @@ public class Handgun : Ability
     {
         GameObject newBullet = (GameObject)Instantiate(bullet, this.transform.position, transform.rotation);
         newBullet.GetComponent<Rigidbody2D>().velocity = ((target - transform.position).normalized * bulletSpeed);
-        Physics2D.IgnoreCollision(newBullet.GetComponent<Collider2D>(), transform.parent.parent.GetComponent<Collider2D>());
+        foreach (Collider2D collider in transform.GetComponentsInParent<Collider2D>())
+        {
+            Physics2D.IgnoreCollision(newBullet.GetComponent<Collider2D>(), collider);
+        }
     }
 
 	protected override void Start()

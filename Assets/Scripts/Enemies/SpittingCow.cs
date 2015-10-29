@@ -28,12 +28,13 @@ public class SpittingCow : Enemy
     // Update is called once per frame
     void Update()
     {
-
-        transform.rotation = _2DHelper.LookAt(transform.position, target.position);
         if (!shouldAct)
         {
             return;
         }
+
+        transform.rotation = _2DHelper.LookAt(transform.position, target.position);
+
         if (m_ai.ShouldAttack(transform.position))
         {
             m_ability.Execute(target.position);

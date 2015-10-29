@@ -4,12 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
 
-public class Entity : NetworkBehaviour {
+public class Entity : NetworkBehaviour
+{
     public float hp { get; protected set; }
     protected float armor;
 
-    [SerializeField] AudioClip hitAudioClip;
-    [SerializeField] AudioClip dieAudioClip;
+    [SerializeField]
+    AudioClip hitAudioClip;
+    [SerializeField]
+    AudioClip dieAudioClip;
 
     protected bool isAlive
     {
@@ -20,7 +23,7 @@ public class Entity : NetworkBehaviour {
 
     public event HPChange hpChange;
 
-    protected void Start ()
+    protected void Start()
     {
         hpChange += OnHpChange;
     }
@@ -40,11 +43,17 @@ public class Entity : NetworkBehaviour {
             if (hpChange != null) hpChange(oldHP, hp);
             if (hp > 0)
             {
-                AudioSource.PlayClipAtPoint(hitAudioClip, transform.position);
+                if (hitAudioClip != null)
+                {
+                    AudioSource.PlayClipAtPoint(hitAudioClip, transform.position);
+                }
             }
             else
             {
-                AudioSource.PlayClipAtPoint(dieAudioClip, transform.position);
+                if (dieAudioClip != null)
+                {
+                    AudioSource.PlayClipAtPoint(dieAudioClip, transform.position);
+                }
                 Die();
             }
         }
